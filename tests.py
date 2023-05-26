@@ -58,8 +58,8 @@ class TestCalculator(unittest.TestCase):
 
     def test_zero_division(self):
         # Перевірка ділення на нуль, очікується повернення None
-        result = self.calculator.divide(5, 0)
-        self.assertIsNone(result, "Повернення None при діленні на нуль")
+        with self.assertRaises(ZeroDivisionError):
+            self.calculator.divide(5, 0)
 
 if __name__ == '__main__':
     unittest.main()
