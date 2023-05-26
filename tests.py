@@ -61,17 +61,25 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.divide(5, 0)
         self.assertIsNone(result, "Повернення None при діленні на нуль")
 
-def print_report():
-    with open('test_report.txt', 'r') as file:
-        print(file.read())
+def print_report(result):
+    print(result)
+    for test_case, error in result.errors:
+        print(f"\n[ERROR] Test case: {test_case}")
+        print(error)
+
+    for test_case, failure in result.failures:
+        print(f"\n[FAILURE] Test case: {test_case}")
+        print(failure)
 
 if __name__ == '__main__':
     # Запуск тестів
     runner = unittest.TextTestRunner(stream=open('test_report.txt', 'w'))
     result = runner.run(unittest.makeSuite(TestCalculator))
 
-    print(result)
-    print_report()
+    print_report(result)
+
+    with open('test_report.txt', 'r') as file:
+        print(file.read())
 
 
 
