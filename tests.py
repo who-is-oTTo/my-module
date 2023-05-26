@@ -1,26 +1,25 @@
-# test_my_module.py
 import unittest
 import math
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        return a / b if b != 0 else None
+
+    def square_root(self, a):
+        return math.sqrt(a) if a >= 0 else None
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
         self.calculator = Calculator()
-
-    class Calculator:
-        def add(self, a, b):
-            return a + b
-
-        def subtract(self, a, b):
-            return a - b
-
-        def multiply(self, a, b):
-            return a * b
-
-        def divide(self, a, b):
-            return a / b if b != 0 else None
-
-        def square_root(self, a):
-            return math.sqrt(a) if a >= 0 else None
 
     def test_add(self):
         result = self.calculator.add(2, 3)
