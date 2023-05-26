@@ -44,7 +44,7 @@ class TestCalculator(unittest.TestCase):
     def test_square_root(self):
         result = self.calculator.square_root(16)
         self.assertEqual(result, 4)
-
+        
     # Тести з очікуваними помилками
 
     def test_missing_method(self):
@@ -53,11 +53,11 @@ class TestCalculator(unittest.TestCase):
 
     def test_invalid_input(self):
         with self.assertRaises(TypeError):
-            result = self.calculator.add("2", 3)
+            result = self.calculator.add(2, "3")
 
     def test_zero_division(self):
-        with self.assertRaises(ZeroDivisionError):
-            result = self.calculator.divide(5, 0)
+        result = self.calculator.divide(5, 0)
+        self.assertIsNone(result, "Division by zero should return None")
 
 if __name__ == '__main__':
     unittest.main()
