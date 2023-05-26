@@ -1,32 +1,5 @@
-import math
 import unittest
-
-
-class Calculator:
-    def add(self, a, b):
-        return a + b
-
-    def subtract(self, a, b):
-        return a - b
-
-    def multiply(self, a, b):
-        return a * b
-
-    def divide(self, a, b):
-        return a / b if b != 0 else None
-
-    def square_root(self, a):
-        return math.sqrt(a) if a >= 0 else None
-
-    def power(self, a, b):
-        return a ** b
-
-    def max(self, a, b):
-        return max(a, b)
-
-    def min(self, a, b):
-        return min(a, b)
-
+from my_module import Calculator
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
@@ -96,6 +69,19 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.min(4, 4)
         self.assertEqual(result, 4)
 
+    # Нові тести з очікуваними помилками
+
+    def test_missing_method(self):
+        with self.assertRaises(AttributeError):
+            result = self.calculator.nonexistent_method(2, 3)
+
+    def test_invalid_input(self):
+        with self.assertRaises(TypeError):
+            result = self.calculator.add("2", 3)
+
+    def test_zero_division(self):
+        with self.assertRaises(ZeroDivisionError):
+            result = self.calculator.divide(5, 0)
 
 if __name__ == '__main__':
     unittest.main()
