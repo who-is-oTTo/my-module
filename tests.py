@@ -44,20 +44,24 @@ class TestCalculator(unittest.TestCase):
     def test_square_root(self):
         result = self.calculator.square_root(16)
         self.assertEqual(result, 4)
-        
-    # Тести з очікуваними помилками
 
+    # Тест для перевірки наявності неіснуючого методу
     def test_missing_method(self):
         with self.assertRaises(AttributeError):
-            result = self.calculator.nonexistent_method(2, 3)
+            # Виклик неіснуючого методу "nonexistent_method"
+            self.calculator.nonexistent_method(2, 3)
 
+    # Тест для перевірки некоректного типу вхідних даних
     def test_invalid_input(self):
         with self.assertRaises(TypeError):
-            result = self.calculator.add(2, "3")
+            # Виклик методу "add" з рядковим аргументом
+            self.calculator.add("2", 3)
 
+    # Тест для перевірки ділення на нуль
     def test_zero_division(self):
-        result = self.calculator.divide(5, 0)
-        self.assertIsNone(result, "Division by zero should return None")
+        with self.assertRaises(ZeroDivisionError):
+            # Виклик методу "divide" з діленням на нуль
+            self.calculator.divide(5, 0)
 
 if __name__ == '__main__':
     unittest.main()
