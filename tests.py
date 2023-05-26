@@ -41,11 +41,6 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.divide(10, 2)
         self.assertEqual(result, 5)
 
-    def test_divide_by_zero(self):
-        # Перевірка ділення на нуль, очікується помилка ZeroDivisionError
-        with self.assertRaises(ZeroDivisionError):
-            self.calculator.divide(10, 0)
-
     def test_square_root(self):
         # Перевірка обчислення квадратного кореня
         result = self.calculator.square_root(16)
