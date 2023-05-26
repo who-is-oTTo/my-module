@@ -1,6 +1,32 @@
-# test_my_module.py
+import math
 import unittest
-from my_module import Calculator
+
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        return a / b if b != 0 else None
+
+    def square_root(self, a):
+        return math.sqrt(a) if a >= 0 else None
+
+    def power(self, a, b):
+        return a ** b
+
+    def max(self, a, b):
+        return max(a, b)
+
+    def min(self, a, b):
+        return min(a, b)
+
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
@@ -69,6 +95,7 @@ class TestCalculator(unittest.TestCase):
     def test_min_equal_numbers(self):
         result = self.calculator.min(4, 4)
         self.assertEqual(result, 4)
+
 
 if __name__ == '__main__':
     unittest.main()
