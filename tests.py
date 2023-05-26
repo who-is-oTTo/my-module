@@ -1,5 +1,5 @@
-import math
 import unittest
+import math
 
 class Calculator:
     def add(self, a, b):
@@ -16,16 +16,6 @@ class Calculator:
 
     def square_root(self, a):
         return math.sqrt(a) if a >= 0 else None
-
-def test_add():
-    calculator = Calculator()
-    result = calculator.add(2, 3)
-    assert result == 5
-
-def test_subtract():
-    calculator = Calculator()
-    result = calculator.subtract(5, 2)
-    assert result == 3
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
@@ -70,7 +60,7 @@ class TestCalculator(unittest.TestCase):
         # Перевірка ділення на нуль, очікується повернення None
         result = self.calculator.divide(5, 0)
         self.assertIsNone(result, "Повернення None при діленні на нуль")
-        
+
 if __name__ == '__main__':
     unittest.main()
 
