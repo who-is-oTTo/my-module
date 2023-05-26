@@ -1,7 +1,7 @@
 # test_my_module.py
 import math
 import unittest
-from my_module import Calculator
+import Calculator
 
 
 class Calculator:
