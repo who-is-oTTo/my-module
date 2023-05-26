@@ -51,5 +51,20 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.square_root(16)
         self.assertEqual(result, 4)
 
+    def test_missing_method(self):
+        # Перевірка виклику неіснуючого методу, очікується помилка AttributeError
+        with self.assertRaises(AttributeError):
+            self.calculator.nonexistent_method(2, 3)
+
+    def test_invalid_input(self):
+        # Перевірка передачі неправильного типу аргументів, очікується помилка TypeError
+        with self.assertRaises(TypeError):
+            self.calculator.add("2", 3)
+
+    def test_zero_division(self):
+        # Перевірка ділення на нуль, очікується повернення None
+        result = self.calculator.divide(5, 0)
+        self.assertIsNone(result)
+
 if __name__ == '__main__':
     unittest.main()
