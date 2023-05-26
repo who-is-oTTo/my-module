@@ -1,6 +1,6 @@
 # test_my_module.py
 import unittest
-from my_module_folder.my_module import Calculator
+from my-module import Calculator
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
