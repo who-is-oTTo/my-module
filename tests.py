@@ -45,6 +45,17 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.square_root(16)
         self.assertEqual(result, 4)
 
+    def test_negative_add(self):
+        result = self.calculator.add(-2, -3)
+        self.assertEqual(result, -5)
+
+    def test_negative_multiply(self):
+        result = self.calculator.multiply(-4, 3)
+        self.assertEqual(result, -12)
+
+    def test_negative_subtract(self):
+        result = self.calculator.subtract(-5, -2)
+        self.assertEqual(result, -3)
+
 if __name__ == '__main__':
     unittest.main()
-
