@@ -22,47 +22,40 @@ class TestCalculator(unittest.TestCase):
         self.calculator = Calculator()
 
     def test_add(self):
-        # Перевірка додавання двох чисел
         result = self.calculator.add(2, 3)
-        self.assertEqual(result, 5)
+        self.assertEqual(result, 5, "Помилка у методі add()")
 
     def test_subtract(self):
-        # Перевірка віднімання двох чисел
         result = self.calculator.subtract(5, 2)
-        self.assertEqual(result, 3)
+        self.assertEqual(result, 3, "Помилка у методі subtract()")
 
     def test_multiply(self):
-        # Перевірка множення двох чисел
         result = self.calculator.multiply(4, 3)
-        self.assertEqual(result, 12)
+        self.assertEqual(result, 12, "Помилка у методі multiply()")
 
     def test_divide(self):
-        # Перевірка ділення двох чисел
         result = self.calculator.divide(10, 2)
-        self.assertEqual(result, 5)
+        self.assertEqual(result, 5, "Помилка у методі divide()")
 
     def test_square_root(self):
-        # Перевірка обчислення квадратного кореня
         result = self.calculator.square_root(16)
-        self.assertEqual(result, 4)
+        self.assertEqual(result, 4, "Помилка у методі square_root()")
 
     def test_missing_method(self):
-        # Перевірка виклику неіснуючого методу, очікується помилка AttributeError
         with self.assertRaises(AttributeError):
             self.calculator.nonexistent_method(2, 3)
 
     def test_invalid_input(self):
-        # Перевірка передачі неправильного типу аргументів, очікується помилка TypeError
         with self.assertRaises(TypeError):
             self.calculator.add("2", 3)
 
     def test_zero_division(self):
-        # Перевірка ділення на нуль, очікується повернення None
         result = self.calculator.divide(5, 0)
         self.assertIsNone(result, "Повернення None при діленні на нуль")
 
 if __name__ == '__main__':
     unittest.main()
+
 
 
 
